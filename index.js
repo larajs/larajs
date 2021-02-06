@@ -1,6 +1,6 @@
-const app = require('./express/app');
-const sequelize = require('./sequelize');
-const PORT = 8080;
+const app = require('./app/app');
+const sequelize = require('./databases');
+const PORT = 9999;
 
 async function assertDatabaseConnectionOk() {
 	console.log(`Checking database connection...`);
@@ -20,7 +20,7 @@ async function init() {
 	console.log(`Starting Sequelize + Express example on port ${PORT}...`);
 
 	app.listen(PORT, () => {
-		console.log(`Express server started on port ${PORT}. Try some routes, such as '/api/users'.`);
+		console.log(`Express server started on port http://localhost:${PORT}`);
 	});
 }
 

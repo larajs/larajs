@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 // We export a function that defines the model.
 // This function will automatically receive as parameter the Sequelize connection object.
 module.exports = (sequelize) => {
-	sequelize.define('instrument', {
+	sequelize.define('user', {
 		// The following specification of the 'id' attribute could be omitted
 		// since it is the default.
 		id: {
@@ -12,22 +12,23 @@ module.exports = (sequelize) => {
 			primaryKey: true,
 			type: DataTypes.INTEGER
 		},
-		type: {
+		username: {
 			allowNull: false,
 			type: DataTypes.STRING,
+			unique: true,
+			validate: {
+				// We require usernames to have length of at least 3, and
+				// only use letters, numbers and underscores.
+				is: /^\w{3,}$/
+			}
 		},
-		// type: {
-		// 	allowNull: false,
-		// 	type: DataTypes.STRING,
-		// 	validate: {
-		// 		isIn: [['string', 'wind', 'percussion']]
-		// 	}
-		// },
-		purchaseDate: {
-			allowNull: false,
-			type: DataTypes.DATE
+		password: {
+			type: DataTypes.STRING,
+			validate: {
+				// We require usernames to have length of at least 3, and
+				// only use letters, numbers and underscores.
+				is: /^\w{6,}$/
+			}
 		},
-		// We also want it to have a 'orchestraId' field, but we don't have to define it here.
-		// It will be defined automatically when Sequelize applies the associations.
 	});
 };

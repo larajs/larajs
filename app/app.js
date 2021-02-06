@@ -3,10 +3,6 @@ const bodyParser = require('body-parser');
 
 const routes = {
 	users: require('./routes/users'),
-	instruments: require('./routes/instruments'),
-	orchestras: require('./routes/orchestras'),
-	// Add more routes here...
-	// items: require('./routes/items'),
 };
 
 const app = express();
