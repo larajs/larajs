@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const routes = {
-	users: require('./routes/users'),
+	users: require('./controllers/users'),
 };
 
 const app = express();
